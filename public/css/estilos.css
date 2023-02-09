@@ -1,0 +1,22 @@
+div.row:nth-child(even) div:first-of-type{
+    background-color: #999999;
+    color: white;
+}
+
+div.row:nth-child(odd) div:first-of-type{
+    background-color: #cccccc;
+    color: black;
+}
+
+.mb-5 {
+    margin-bottom: 5rem;
+}
+
+.alert {
+    display: flex;
+    align-items: center;
+}
+
+.card-deck {
+    margin-top: 5rem;
+}

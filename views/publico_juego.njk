@@ -1,0 +1,36 @@
+<!-- Vista publica que carga el detalle de los juegos !-->
+{% extends "publico_base.njk" %}
+{% block titulo %}Juegos | Ficha{% endblock %}
+{% block contenido %}
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="card-deck">
+            <div class="card col-12 col-md-6" style="width: 25rem;">
+                <div class="d-flex justify-content-center">
+                    <h1>Ficha de Juego</h1>
+                </div>
+                <img src="/public/uploads/{{ juego.imagen }}" class="card-img-top img-fluid" alt="Juego imagen">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ juego.nombre }}</h5>
+                        <p class="card-text">{{ juego.descripcion }}</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Edad: {{ juego.edad }}</li>
+                            <li class="list-group-item">Jugadores: {{ juego.jugadores }}</li>
+                            <li class="list-group-item">Categoria: {{ juego.tipo }}</li>
+                            <li class="list-group-item text-primary">Precio: {{ juego.precio }}</li>
+                        </ul>
+                        <div style="background-color: #D2D0CF">
+                            <strong>Ediciones</strong>
+                            <ul class="list-group list-group-flush" style="background-color: #D2D0CF">
+                                {% for edicion in juego.ediciones %}
+                                    <li class="list-group-item">{{ edicion.edicion }} - {{ edicion.anyo }}</li>
+                                {% else %}
+                                    <div class="col-12 alert  mt-3">No hay ediciones que mostrar</div>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div style="background-color: #D2D0CF; height: 20px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}

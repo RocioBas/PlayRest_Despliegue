@@ -1,0 +1,27 @@
+<!-- Vista publica que carga un buscador para buscar los juegos !-->
+{% extends "publico_base.njk" %}
+{% block titulo %}Juegos | Listado{% endblock %}
+{% block contenido %}
+<div class="container">
+    <h1>Listado de Juegos</h1>
+    <form action="/buscar" method="get" enctype="multipart/form-data">
+        <div class="form-group mb-3">
+            <label for="nombre">Buscar:</label>
+            <input type="text" class="form-control" name="nombre" placeholder="nombre juego..."/>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </div>
+</form>
+{% if juegos %}
+    <ul class="mt-5">
+        {% for juego in juegos %}
+            <li>
+                <a href="/juegos/{{juego.id}}">{{ juego.nombre }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% elif error %}
+    <div class="alert alert-danger mt-5">{{ error }}</div>
+{% endif %}
+</div>
+{% endblock %}

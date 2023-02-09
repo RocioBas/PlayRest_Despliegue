@@ -1,0 +1,19 @@
+<!-- Vista admin que carga el formulario para crear una nueva edicion para un juego !-->
+{% extends "admin_base.njk" %}
+{% block titulo %}Juegos | Edicion{% endblock %}
+{% block contenido %}
+    <h1>Añadir nueva Edicion</h1>
+    <form action="/admin/juegos/edicion/{{ juego.id }}" method="post">
+        <div class="form-group mb-3">
+            <label for="edicion">Nombre:</label>
+            <input type="text" class="form-control" name="edicion" placeholder="Nombre de la edicion..."/>
+        </div>
+        <div class="form-group mb-3">
+            <label for="anyo">Año:</label>
+            <input type="text" class="form-control" name="anyo" placeholder="Año del juego..."/>
+        </div>
+        <div class="form-group mb-3">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
+    </form>
+{% endblock %}
