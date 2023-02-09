@@ -1,7 +1,7 @@
 // Archivo js para generar usuarios en la Base de datos
 const mongoose = require("mongoose");
 const Usuario = require(__dirname + "/../models/usuario");
-mongoose.connect('mongodb://localhost:27017/playrest_v3');
+mongoose.connect('mongodb://mymongodb/playrest_v3');
 Usuario.collection.drop();
 
 let usu1 = new Usuario({
