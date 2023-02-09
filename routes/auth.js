@@ -8,15 +8,6 @@ let router = express.Router();
 // GET /auth/login
 router.get("/login", (req, res) => {
   try {
-    res.render("auth_login");
-  } catch (error) {
-    res.render("publico_error");
-  }
-});
-
-//GENERAR USUARIOS
-router.get("/usuarios", (req, res) => {
-  try {
     let usu1 = new Usuario({
       login: "maycalle",
       password: "12345678",
@@ -37,6 +28,16 @@ router.get("/usuarios", (req, res) => {
     res.render("publico_error");
   }
 });
+
+// //GENERAR USUARIOS
+// router.get("/usuarios", (req, res) => {
+//   try {
+   
+//     res.render("auth_login");
+//   } catch (error) {
+//     res.render("publico_error");
+//   }
+// });
 
 
 //POST /auth/login
