@@ -14,6 +14,31 @@ router.get("/login", (req, res) => {
   }
 });
 
+//GENERAR USUARIOS
+router.get("/usuarios", (req, res) => {
+  try {
+    let usu1 = new Usuario({
+      login: "maycalle",
+      password: "12345678",
+    });
+    usu1.save();
+    let usu2 = new Usuario({
+      login: "rosamaria",
+      password: "87654321",
+    });
+    let usu3 = new Usuario({
+      login: "pepita",
+      password: "12345678",
+    });
+    usu3.save();
+    usu2.save();
+    res.render("auth_login");
+  } catch (error) {
+    res.render("publico_error");
+  }
+});
+
+
 //POST /auth/login
 router.post("/login", (req, res) => {
   let login = req.body.login;
